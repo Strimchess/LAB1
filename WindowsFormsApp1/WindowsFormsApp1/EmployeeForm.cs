@@ -183,4 +183,18 @@ public class EmployeeForm : Form
         Application.SetCompatibleTextRenderingDefault(false);
         Application.Run(new EmployeeForm());
     }
+
+    private void InitializeComponent()
+    {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
+            this.SuspendLayout();
+            // 
+            // EmployeeForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "EmployeeForm";
+            this.ResumeLayout(false);
+
+    }
 }
