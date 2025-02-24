@@ -80,7 +80,7 @@ public class EmployeeForm : Form
         employeeManager = new EmployeeManager();
         UpdateEmployeesList();
     }
-    private void UpdateEmployeesList()
+    public void UpdateEmployeesList()
     {
         employeesListBox.Items.Clear();
         foreach (var employee in employeeManager.Employees)
@@ -89,7 +89,7 @@ public class EmployeeForm : Form
             employeesListBox.Items.Add($"{employee.Name} - {employee.Position}({ vacationStatus})");
         }
     }
-    private void AddEmployeeButton_Click(object sender, EventArgs e)
+    public void AddEmployeeButton_Click(object sender, EventArgs e)
     {
         if (string.IsNullOrEmpty(nameTextBox.Text) ||
         string.IsNullOrEmpty(positionTextBox.Text))
@@ -112,7 +112,7 @@ public class EmployeeForm : Form
             MessageBox.Show(ex.Message);
         }
     }
-    private void RemoveEmployeeButton_Click(object sender, EventArgs e)
+    public void RemoveEmployeeButton_Click(object sender, EventArgs e)
     {
         if (employeesListBox.SelectedIndex == -1)
         {
@@ -140,7 +140,7 @@ public class EmployeeForm : Form
             }
         }
     }
-    private void UpdateVacationButton_Click(object sender, EventArgs e)
+    public void UpdateVacationButton_Click(object sender, EventArgs e)
     {
         if (employeesListBox.SelectedIndex == -1)
         {
@@ -184,7 +184,7 @@ public class EmployeeForm : Form
         Application.Run(new EmployeeForm());
     }
 
-    private void InitializeComponent()
+    public void InitializeComponent()
     {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             this.SuspendLayout();

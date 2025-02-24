@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
         {
             File.WriteAllLines("employees.txt", Employees.Select(e =>
             $"{e.Name}|{e.Position}|{e.HireDate.ToString("yyyy-MM-dd")}|{e.VacationStart?.ToString("yyyy - MM - dd")}|{e.VacationEnd?.ToString("yyyy - MM - dd")}"));
-}
+        }
         private void LoadEmployees()
         {
             if (File.Exists("employees.txt"))
