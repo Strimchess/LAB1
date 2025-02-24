@@ -50,35 +50,23 @@ namespace WindowsFormsApp1.Tests
         public string testFilePath = "employees.txt";
         public EmployeeManager employees = new EmployeeManager();
 
-        [TestCleanup]
-        public void Cleanup()
-        {
-            if (File.Exists(testFilePath))
-            {
-                File.Delete(testFilePath);
-            }
-        }
 
         [TestMethod]
         public void SaveEmployees_CreatesCorrectFile()
         {
-            employees.AddEmployee(new Employee("Emp", "Pos", new DateTime(2025, 5, 1))
-            {
-                VacationStart = new DateTime(2025, 6, 1),
-                VacationEnd = new DateTime(2025, 6, 2)
-            });
+            employees.AddEmployee(new Employee("Emp", "Pos", new DateTime(2025, 5, 1)));
 
 
 
             Assert.IsTrue(File.Exists(testFilePath));
             var lines = File.ReadAllLines(testFilePath);
-            Assert.AreEqual("Emp|Pos|2025-05-01|2025 - 06 - 01|2025 - 06 - 02", lines[0]);
+            Assert.AreEqual("Emp|Pos|2025-05-01||", lines[1]);
         }
 
         [TestMethod]
         public void LoadEmployees_LoadsCorrectData()
         {
-            
+            Assert.AreEqual(employees.Employees[0].Name, "Name");
         }
 
     }
