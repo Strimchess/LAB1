@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WindowsFormsApp1;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 
@@ -10,66 +8,91 @@ namespace WindowsFormsApp1.Tests
     [TestClass()]
     public class EmployeeManagerTests
     {
-        [TestMethod()]
-        public void EmployeeManagerTest()
+        private string testFilePath = "employees.txt";
+        private EmployeeManager manager;
+
+        [TestInitialize]
+        public void Setup()
         {
-            EmployeeManager manager = new EmployeeManager();
+            if (File.Exists(testFilePath))
+            {
+                File.Delete(testFilePath);
+            }
+            manager = new EmployeeManager();
+        }
+
+        [TestMethod()]
+        public void EmployeeManager_CreatesInstance()
+        {
             Assert.IsNotNull(manager);
         }
 
         [TestMethod()]
-        public void AddEmployeeTest()
+        public void AddEmployee_AddsEmployeeToList()
         {
-            EmployeeManager manager = new EmployeeManager();
-            Employee employee =  new Employee("Name", "Pos", new DateTime(2025, 1, 1));
+            Employee employee = new Employee("Khalid Kashmiri", "Developer", new DateTime(2025, 1, 1));
             manager.AddEmployee(employee);
+            Assert.IsTrue(File.Exists(testFilePath));
+            Assert.AreEqual(1, manager.Employees.Count);
             Assert.AreEqual(employee.Name, manager.Employees[0].Name);
         }
 
+        
+
         [TestMethod()]
-        public void RemoveEmployeeTest()
+        public void RemoveEmployee_RemovesEmployeeFromList()
         {
-            EmployeeManager manager = new EmployeeManager();
-            EmployeeManager manager2 = new EmployeeManager();
-            Employee employee = new Employee("Name", "Pos", new DateTime(2025, 1, 1));
+            Employee employee = new Employee("Khalid Kashmiri", "Developer", new DateTime(2025, 1, 1));
             manager.AddEmployee(employee);
             manager.RemoveEmployee(employee);
-            Assert.AreEqual(manager2.Employees.Count, manager.Employees.Count);
+            Assert.IsTrue(File.Exists(testFilePath));
+            Assert.AreEqual(0, manager.Employees.Count);
         }
+
+        
 
         [TestMethod()]
-        public void UpdateVacationTest()
+        public void UpdateVacation_UpdatesEmployeeVacationPeriod()
         {
-            EmployeeManager manager = new EmployeeManager();
-            Employee employee = new Employee("Name", "Pos", new DateTime(2025, 1, 1));
+            Employee employee = new Employee("Khalid Kashmiri", "Developer", new DateTime(2025, 1, 1));
             manager.AddEmployee(employee);
-            manager.UpdateVacation(employee, new DateTime(2025, 2, 2), new DateTime(2025, 3, 3));
-            Assert.AreEqual(employee.VacationStart, new DateTime(2025, 2, 2));
+            Assert.IsTrue(File.Exists(testFilePath));
+            DateTime vacationStart = new DateTime(2025, 2, 2);
+            DateTime vacationEnd = new DateTime(2025, 3, 3);
+            manager.UpdateVacation(employee, vacationStart, vacationEnd);
+            Assert.AreEqual(vacationStart, employee.VacationStart);
+            Assert.AreEqual(vacationEnd, employee.VacationEnd);
         }
 
-        public string testFilePath = "employees.txt";
-        public EmployeeManager employees = new EmployeeManager();
-
+        
 
         [TestMethod]
-        public void SaveEmployees_CreatesCorrectFile()
+        public void SaveEmployees_CreatesFileWithCorrectData()
         {
-            employees.AddEmployee(new Employee("Emp", "Pos", new DateTime(2025, 5, 1)));
-
-
-
+            Employee employee = new Employee("Emp", "Pos", new DateTime(2025, 5, 1));
+            manager.AddEmployee(employee);
             Assert.IsTrue(File.Exists(testFilePath));
             var lines = File.ReadAllLines(testFilePath);
-            Assert.AreEqual("Emp|Pos|2025-05-01||", lines[1]);
+            Assert.IsTrue(lines.Any(line => line.Contains("Emp|Pos|2025-05-01")));
         }
 
         [TestMethod]
         public void LoadEmployees_LoadsCorrectData()
         {
-            Assert.AreEqual(employees.Employees[0].Name, "Name");
+            File.WriteAllLines(testFilePath, new[] { "Name|Pos|2025-01-01||" });
+
+            manager = new EmployeeManager();
+            Assert.AreEqual(1, manager.Employees.Count);
+            Assert.AreEqual("Name", manager.Employees[0].Name);
         }
 
+        [TestCleanup]
+        public void Cleanup()
+        {
+            if (File.Exists(testFilePath))
+            {
+                File.Delete(testFilePath);
+            }
+        }
     }
 }
-
-

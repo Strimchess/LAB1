@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+
 public class Employee
 {
     public string Name { get; set; }
