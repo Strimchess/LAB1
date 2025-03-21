@@ -44,5 +44,5 @@ C:\Projects\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\AppTests.csproj.CoreCo
 C:\Projects\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\AppTests.csproj.Up2Date
 C:\Projects\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\EmployeeTests.dll
 C:\Projects\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\EmployeeTests.pdb
-C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\AppTests.csprojAssemblyReference.cache
-C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\AppTests.csproj.CopyComplete
+C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\AppTests.csproj.AssemblyReference.cache
+C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\EmployeeTests\obj\Debug\AppTests.csproj.Up2Date

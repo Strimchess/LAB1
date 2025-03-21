@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System;
+using System.IO;
 using WindowsFormsApp1;
 using System.Resources;
 
@@ -30,10 +31,11 @@ public class EmployeeForm : Form
         this.Text = "Управление сотрудниками";
         this.Width = 600;
         this.Height = 420;
+        
 
         nameTextBox = new TextBox
         {
-            Location = new System.Drawing.Point(10, 30),
+            Location = new System.Drawing.Point(10, 10),
             Width = 150,
             Text = "Имя и фамилия",
             Tag = "Имя и фамилия"
@@ -41,10 +43,10 @@ public class EmployeeForm : Form
 
         positionTextBox = new TextBox
         {
-            Location = new System.Drawing.Point(170, 30),
+            Location = new System.Drawing.Point(170, 10),
             Width = 150,
-            Text = "Позиция",
-            Tag = "Позиция"
+            Text = "Должность",
+            Tag = "Должность"
         };
 
         hireDatePicker = new DateTimePicker
@@ -95,35 +97,31 @@ public class EmployeeForm : Form
 
         hireDateLabel = new Label
         {
-            Location = new System.Drawing.Point(330, 10),
+            Location = new System.Drawing.Point(330, 5),
             Text = "Дата приёма",
-            Width = 100
         };
 
         vacationStartLabel = new Label
         {
-            Location = new System.Drawing.Point(10, 40),
+            Location = new System.Drawing.Point(10, 35),
             Text = "Начало отпуска",
-            Width = 120
         };
 
         vacationEndLabel = new Label
         {
-            Location = new System.Drawing.Point(220, 40),
+            Location = new System.Drawing.Point(220, 35),
             Text = "Конец отпуска",
-            Width = 120
         };
 
         notifyBeforeStartLabel = new Label
         {
-            Location = new System.Drawing.Point(370, 60),
+            Location = new System.Drawing.Point(420, 60),
             Text = "Увед. за (дн.):",
-            Width = 120
         };
 
         notifyBeforeStartPicker = new NumericUpDown
         {
-            Location = new System.Drawing.Point(470, 60),
+            Location = new System.Drawing.Point(520, 60),
             Width = 50,
             Minimum = 1,
             Maximum = 30,
@@ -132,24 +130,19 @@ public class EmployeeForm : Form
 
         notifyBeforeEndLabel = new Label
         {
-            Location = new System.Drawing.Point(370, 90),
+            Location = new System.Drawing.Point(420, 90),
             Text = "Увед. о конце (дн.):",
-            Width = 120
         };
 
         notifyBeforeEndPicker = new NumericUpDown
         {
-            Location = new System.Drawing.Point(470, 90),
+            Location = new System.Drawing.Point(520, 90),
             Width = 50,
             Minimum = 1,
             Maximum = 30,
             Value = 1
         };
 
-        notificationTimer = new Timer();
-        notificationTimer.Interval = 60000; // Проверка раз в минуту
-        notificationTimer.Tick += NotificationTimer_Tick;
-        notificationTimer.Start();
 
         this.Controls.Add(notifyBeforeStartLabel);
         this.Controls.Add(notifyBeforeStartPicker);
@@ -168,6 +161,8 @@ public class EmployeeForm : Form
         this.Controls.Add(updateVacationButton);
         this.Controls.Add(employeesListBox);
 
+        notifyBeforeStartPicker.ValueChanged += (s, e) => SaveSettings();
+        notifyBeforeEndPicker.ValueChanged += (s, e) => SaveSettings();
         nameTextBox.GotFocus += new EventHandler(RemoveText);
         nameTextBox.LostFocus += new EventHandler(AddText);
         positionTextBox.GotFocus += new EventHandler(RemoveText);
@@ -175,9 +170,11 @@ public class EmployeeForm : Form
 
         employeeManager = new EmployeeManager();
         UpdateEmployeesList();
+        LoadSettings();
+        NotifCheck();
     }
 
-    private void NotificationTimer_Tick(object sender, EventArgs e)
+    private void NotifCheck()
     {
         int daysBeforeStart = (int)notifyBeforeStartPicker.Value;
         int daysBeforeEnd = (int)notifyBeforeEndPicker.Value;
@@ -259,7 +256,7 @@ public class EmployeeForm : Form
         {
             employeeManager.AddEmployee(newEmployee);
             nameTextBox.Text = "Имя и фамилия";
-            positionTextBox.Text = "Позиция";
+            positionTextBox.Text = "Должность";
             UpdateEmployeesList();
         }
         catch (Exception ex)
@@ -335,6 +332,51 @@ public class EmployeeForm : Form
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+    }
+
+    private string settingsFile = "settings.txt";
+
+    private void SaveSettings()
+    {
+        try
+        {
+            File.WriteAllLines(settingsFile, new string[]
+            {
+            notifyBeforeStartPicker.Value.ToString(),
+            notifyBeforeEndPicker.Value.ToString()
+            });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ошибка при сохранении настроек: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void LoadSettings()
+    {
+        if (File.Exists(settingsFile))
+        {
+            try
+            {
+                var lines = File.ReadAllLines(settingsFile);
+                if (lines.Length >= 2)
+                {
+                    if (int.TryParse(lines[0], out int startDays))
+                    {
+                        notifyBeforeStartPicker.Value = Math.Max(notifyBeforeStartPicker.Minimum, Math.Min(notifyBeforeStartPicker.Maximum, startDays));
+                    }
+
+                    if (int.TryParse(lines[1], out int endDays))
+                    {
+                        notifyBeforeEndPicker.Value = Math.Max(notifyBeforeEndPicker.Minimum, Math.Min(notifyBeforeEndPicker.Maximum, endDays));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке настроек: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

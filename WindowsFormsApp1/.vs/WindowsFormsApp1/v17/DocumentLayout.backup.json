@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\employeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\windowsformsapp1\\employeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\employeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B9629268-E307-4293-9B8D-96A3303231E9}|EmployeeTests\\AppTests.csproj|c:\\users\\329191-13\\desktop\\lab1\\windowsformsapp1\\employeetests\\notificationstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9629268-E307-4293-9B8D-96A3303231E9}|EmployeeTests\\AppTests.csproj|solutionrelative:employeetests\\notificationstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9629268-E307-4293-9B8D-96A3303231E9}|EmployeeTests\\AppTests.csproj|c:\\users\\329191-13\\desktop\\lab1\\windowsformsapp1\\employeetests\\employeemanagertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\windowsformsapp1\\employeemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\employeemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9629268-E307-4293-9B8D-96A3303231E9}|EmployeeTests\\AppTests.csproj|C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\employeetests\\employeemanagertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B9629268-E307-4293-9B8D-96A3303231E9}|EmployeeTests\\AppTests.csproj|solutionrelative:employeetests\\employeemanagertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\windowsformsapp1\\employeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C224305D-FFF3-45DF-A7BE-9415DB489474}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\employeeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B9629268-E307-4293-9B8D-96A3303231E9}|EmployeeTests\\AppTests.csproj|C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\employeetests\\employeeformtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 263,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,20 +46,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotificationsTests.cs",
+              "DocumentMoniker": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\EmployeeTests\\NotificationsTests.cs",
+              "RelativeDocumentMoniker": "EmployeeTests\\NotificationsTests.cs",
+              "ToolTip": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\EmployeeTests\\NotificationsTests.cs",
+              "RelativeToolTip": "EmployeeTests\\NotificationsTests.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T10:54:55.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "EmployeeManager.cs",
+              "DocumentMoniker": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\WindowsFormsApp1\\EmployeeManager.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\EmployeeManager.cs",
+              "ToolTip": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\WindowsFormsApp1\\EmployeeManager.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\EmployeeManager.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAA8wFcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T10:20:48.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EmployeeManagerTests.cs",
               "DocumentMoniker": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\EmployeeTests\\EmployeeManagerTests.cs",
               "RelativeDocumentMoniker": "EmployeeTests\\EmployeeManagerTests.cs",
               "ToolTip": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\EmployeeTests\\EmployeeManagerTests.cs",
               "RelativeToolTip": "EmployeeTests\\EmployeeManagerTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T08:49:22.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\WindowsFormsApp1\\Employee.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Employee.cs",
@@ -69,14 +103,14 @@
               "RelativeDocumentMoniker": "WindowsFormsApp1\\EmployeeForm.cs",
               "ToolTip": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\WindowsFormsApp1\\EmployeeForm.cs",
               "RelativeToolTip": "WindowsFormsApp1\\EmployeeForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAgwHYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T08:07:44.038Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EmployeeForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\WindowsFormsApp1\\EmployeeForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\EmployeeForm.cs",
@@ -88,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "EmployeeFormTests.cs",
               "DocumentMoniker": "C:\\Users\\329191-13\\Desktop\\LAB1\\WindowsFormsApp1\\EmployeeTests\\EmployeeFormTests.cs",
               "RelativeDocumentMoniker": "EmployeeTests\\EmployeeFormTests.cs",
