@@ -1,4 +1,3 @@
-C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
 C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\EmployeeForm.resources
 C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
@@ -18,3 +17,4 @@ C:\Projects\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.cs
 C:\Projects\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Projects\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Projects\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\329191-13\Desktop\LAB1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache

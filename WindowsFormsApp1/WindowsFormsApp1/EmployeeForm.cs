@@ -15,6 +15,15 @@ public class EmployeeForm : Form
     private Button removeEmployeeButton;
     private Button updateVacationButton;
     private ListBox employeesListBox;
+    private Label hireDateLabel;
+    private Label vacationStartLabel;
+    private Label vacationEndLabel;
+    private NumericUpDown notifyBeforeStartPicker;
+    private NumericUpDown notifyBeforeEndPicker;
+    private Label notifyBeforeStartLabel;
+    private Label notifyBeforeEndLabel;
+    private Timer notificationTimer;
+
 
     public EmployeeForm()
     {
@@ -84,6 +93,71 @@ public class EmployeeForm : Form
             Height = 250
         };
 
+        hireDateLabel = new Label
+        {
+            Location = new System.Drawing.Point(330, 10),
+            Text = "Дата приёма",
+            Width = 100
+        };
+
+        vacationStartLabel = new Label
+        {
+            Location = new System.Drawing.Point(10, 40),
+            Text = "Начало отпуска",
+            Width = 120
+        };
+
+        vacationEndLabel = new Label
+        {
+            Location = new System.Drawing.Point(220, 40),
+            Text = "Конец отпуска",
+            Width = 120
+        };
+
+        notifyBeforeStartLabel = new Label
+        {
+            Location = new System.Drawing.Point(370, 60),
+            Text = "Увед. за (дн.):",
+            Width = 120
+        };
+
+        notifyBeforeStartPicker = new NumericUpDown
+        {
+            Location = new System.Drawing.Point(470, 60),
+            Width = 50,
+            Minimum = 1,
+            Maximum = 30,
+            Value = 3
+        };
+
+        notifyBeforeEndLabel = new Label
+        {
+            Location = new System.Drawing.Point(370, 90),
+            Text = "Увед. о конце (дн.):",
+            Width = 120
+        };
+
+        notifyBeforeEndPicker = new NumericUpDown
+        {
+            Location = new System.Drawing.Point(470, 90),
+            Width = 50,
+            Minimum = 1,
+            Maximum = 30,
+            Value = 1
+        };
+
+        notificationTimer = new Timer();
+        notificationTimer.Interval = 60000; // Проверка раз в минуту
+        notificationTimer.Tick += NotificationTimer_Tick;
+        notificationTimer.Start();
+
+        this.Controls.Add(notifyBeforeStartLabel);
+        this.Controls.Add(notifyBeforeStartPicker);
+        this.Controls.Add(notifyBeforeEndLabel);
+        this.Controls.Add(notifyBeforeEndPicker);
+        this.Controls.Add(hireDateLabel);
+        this.Controls.Add(vacationStartLabel);
+        this.Controls.Add(vacationEndLabel);
         this.Controls.Add(nameTextBox);
         this.Controls.Add(positionTextBox);
         this.Controls.Add(hireDatePicker);
@@ -101,6 +175,28 @@ public class EmployeeForm : Form
 
         employeeManager = new EmployeeManager();
         UpdateEmployeesList();
+    }
+
+    private void NotificationTimer_Tick(object sender, EventArgs e)
+    {
+        int daysBeforeStart = (int)notifyBeforeStartPicker.Value;
+        int daysBeforeEnd = (int)notifyBeforeEndPicker.Value;
+        DateTime today = DateTime.Today;
+
+        foreach (var employee in employeeManager.Employees)
+        {
+            if (employee.VacationStart.HasValue && (employee.VacationStart.Value - today).Days == daysBeforeStart)
+            {
+                MessageBox.Show($"Скоро отпуск у {employee.Name}! Начало {employee.VacationStart.Value:dd.MM.yyyy}.",
+                                "Напоминание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (employee.VacationEnd.HasValue && (employee.VacationEnd.Value - today).Days == daysBeforeEnd)
+            {
+                MessageBox.Show($"Скоро конец отпуска у {employee.Name}. Возвращается {employee.VacationEnd.Value:dd.MM.yyyy}.",
+                                "Напоминание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 
     private void RemoveText(object sender, EventArgs e)
